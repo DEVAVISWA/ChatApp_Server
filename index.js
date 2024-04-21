@@ -1,5 +1,6 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
+const cors = require('cors')
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messages");
@@ -7,7 +8,8 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors())
 app.use(express.json());
 
 mongoose
@@ -38,7 +40,7 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://chatapp-server-50mz.onrender.com",
     credentials: true,
   },
 });
