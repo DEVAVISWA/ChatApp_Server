@@ -9,7 +9,11 @@ const socket = require("socket.io");
 require("dotenv").config();
 
 // app.use(cors());
-app.use(cors())
+// app.use(cors())
+const corsOptions = {
+  origin: ['https://chat-app-client-rho-lovat.vercel.app/', 'https://example2.com']
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
